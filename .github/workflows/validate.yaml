@@ -1,0 +1,51 @@
+name: Validate Project Metadata
+
+on:
+  pull_request:
+    paths:
+      - 'org.yaml'
+      - 'project.yaml'
+      - 'maintainers.yaml'
+      - '*/project.yaml'
+      - '*/maintainers.yaml'
+  push:
+    branches: [main]
+    paths:
+      - 'org.yaml'
+      - 'project.yaml'
+      - 'maintainers.yaml'
+      - '*/project.yaml'
+      - '*/maintainers.yaml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - uses: cncf/automation/.github/actions/validate-project@98e26fa814a0a5f239fc03afd8071d24c534648d
+        with:
+          check_links: 'true'
+
+  validate-maintainers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - uses: cncf/automation/.github/actions/validate-maintainers@98e26fa814a0a5f239fc03afd8071d24c534648d
+        with:
+          # Disabled until the LFX LLT issue is resolved. Validation is done manually for now.
+          verify_maintainers: 'false'
+          check_links: 'true'
+        env:
+          LFX_AUTH_TOKEN: ${{ secrets.LFX_AUTH_TOKEN }}

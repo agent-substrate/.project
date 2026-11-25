@@ -1,0 +1,33 @@
+# Maintainer roster for Agent Substrate
+# Documentation: https://github.com/cncf/automation/tree/main/utilities/dot-project
+#
+# This file lists GitHub handles and teams only. Link your GitHub handle to your
+# LFID and keep your name, primary email, and current affiliation accurate at
+# https://openprofile.dev. Keep current affiliations visible in MAINTAINERS.md
+# in agent-substrate/substrate too; updating one record does not update the other.
+
+maintainers:
+  - project_id: "agent-substrate"
+    org: "agent-substrate"
+    teams:
+      - name: "agent-substrate-maintainers"
+        members:
+          - ahmedtd
+          - BenTheElder
+          - bowei
+          - dberkov
+          - EItanya
+          - HavenXia
+          - JeffLuoo
+          - juli4n
+          - keithmattix
+          - krisztianfekete
+          - laoj2
+          - LiorLieberman
+          - maxsmythe
+          - mayawang
+          - msau42
+          - rakyll
+          - sfunkenhauser
+          - thockin
+          - zoez7
